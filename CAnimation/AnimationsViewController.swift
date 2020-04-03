@@ -20,6 +20,11 @@ class AnimationsViewController: UIViewController {
         colorLayer = CALayer()
         colorLayer.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
         colorLayer.backgroundColor = UIColor.blue.cgColor
+        let transition = CATransition()
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        colorLayer.actions = ["backgroundColor": transition]
+        
         layerView.layer.addSublayer(colorLayer)
     }
     
