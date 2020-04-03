@@ -16,7 +16,10 @@ class AnimationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUp2()
+    }
+    
+    func setUp() {
         colorLayer = CALayer()
         colorLayer.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
         colorLayer.backgroundColor = UIColor.blue.cgColor
@@ -26,6 +29,29 @@ class AnimationsViewController: UIViewController {
         colorLayer.actions = ["backgroundColor": transition]
         
         layerView.layer.addSublayer(colorLayer)
+    }
+    
+    func setUp2() {
+        colorLayer = CALayer()
+        colorLayer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        colorLayer.backgroundColor = UIColor.red.cgColor
+        colorLayer.position = CGPoint(x: view.bounds.size.width / 2, y: view.bounds.size.height / 2)
+        view.layer.addSublayer(colorLayer)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let point = touches.first!.location(in: view)
+        if (colorLayer.presentation()?.hitTest(point)) != nil {
+            let red = CGFloat(arc4random()) / CGFloat(Int32.max)
+            let green = CGFloat(arc4random()) / CGFloat(Int32.max)
+            let blue = CGFloat(arc4random()) / CGFloat(Int32.max)
+            colorLayer.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1).cgColor
+        } else {
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(4.0)
+            colorLayer.position = point
+            CATransaction.commit()
+        }
     }
     
     @IBAction func changerColor() {
