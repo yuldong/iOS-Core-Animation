@@ -50,6 +50,28 @@ Core Animation在每个run loop周期中自动开始一次新的事务（run loo
     这时候对呈现图层而不是模型图层调用-hitTest:会显得更有意义，
     因为呈现图层代表了用户当前看到的图层位置，而不是当前动画结束之后的位置。
 
+- CAAnimationDelegate 代理方法不能更改参数类型，否则不触发
+```
+当更新属性的时候，我们需要设置一个新的事务，并且禁用图层行为。
+否则动画会发生两次，一个是因为显式的CAAnimation，另一次是因为隐式动画
+```
+- 判断动画对应的图层的方案
+```
+1 、open func add(_ anim: CAAnimation, forKey key: String?), 通过key判断
+2、CAAnimation实现了KVC（键-值-编码）协议，可以用-setValue:forKey:和-valueForKey:方法来存取属性。
+但是CAAnimation有一个不同的性能：它更像一个NSDictionary。
+可以让你随意设置键值对，即使和你使用的动画类所声明的属性并不匹配。
+```
+- 属性动画实际上是针对于关键路径而不是一个键, 这就意味着可以对子属性甚至是虚拟属性做动画
+- 特殊的过渡动画: CATransition `与属性动画不同的是，对指定的图层一次只能使用一次CATransition`
+```
+1、CATransition并不作用于指定的图层属性
+2、过渡动画的另类实现: 对原始的图层外观截图，
+然后添加一段动画，平滑过渡到图层改变之后那个截图的效果
+```
+
+
+
 
     
 
