@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD415A2B24403CB000522078 /* LayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD415A2A24403CB000522078 /* LayersViewController.swift */; };
+		CD415A2E24403D0000522078 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD415A2D24403D0000522078 /* DrawView.swift */; };
 		CDB537972434D3B300B5015C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB537962434D3B300B5015C /* AppDelegate.swift */; };
 		CDB537992434D3B300B5015C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB537982434D3B300B5015C /* SceneDelegate.swift */; };
 		CDB5379B2434D3B300B5015C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5379A2434D3B300B5015C /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD415A2A24403CB000522078 /* LayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayersViewController.swift; sourceTree = "<group>"; };
+		CD415A2D24403D0000522078 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		CDB537932434D3B300B5015C /* CAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB537962434D3B300B5015C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB537982434D3B300B5015C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD415A2C24403CEE00522078 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CD415A2D24403D0000522078 /* DrawView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		CDB5378A2434D3B300B5015C = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +81,7 @@
 		CDB537952434D3B300B5015C /* CAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				CD415A2C24403CEE00522078 /* views */,
 				CDB537962434D3B300B5015C /* AppDelegate.swift */,
 				CDB537982434D3B300B5015C /* SceneDelegate.swift */,
 				CDB5379A2434D3B300B5015C /* ViewController.swift */,
@@ -81,6 +94,7 @@
 				CDB537A42434D3B600B5015C /* Info.plist */,
 				CDB537AC24357E2F00B5015C /* ContentView.swift */,
 				CDB537CD2437712300B5015C /* AnimationsViewController.swift */,
+				CD415A2A24403CB000522078 /* LayersViewController.swift */,
 			);
 			path = CAnimation;
 			sourceTree = "<group>";
@@ -163,8 +177,10 @@
 				CDB537CE2437712300B5015C /* AnimationsViewController.swift in Sources */,
 				CDB537972434D3B300B5015C /* AppDelegate.swift in Sources */,
 				CDB537C6243701D400B5015C /* SolidViewController.swift in Sources */,
+				CD415A2E24403D0000522078 /* DrawView.swift in Sources */,
 				CDB537992434D3B300B5015C /* SceneDelegate.swift in Sources */,
 				CDB537AB2435601500B5015C /* ClockViewController.swift in Sources */,
+				CD415A2B24403CB000522078 /* LayersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
