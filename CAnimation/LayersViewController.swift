@@ -16,6 +16,57 @@ class LayersViewController: UIViewController {
         super.viewDidLoad()
 //        drawShapeLayer()
 //        drawCorner()
+//        drawGradientLayer()
+        drawReplicatorLayer()
+    }
+    
+    func drawReplicatorLayer() {
+        let replicatorLayer = CAReplicatorLayer()
+        replicatorLayer.frame = containerView.bounds
+        containerView.layer.addSublayer(replicatorLayer)
+        replicatorLayer.instanceCount = 10
+        
+        var transform = CATransform3DIdentity
+        transform  = CATransform3DTranslate(transform, 0, 40, 0)
+        transform = CATransform3DRotate(transform, CGFloat.pi / 5.0, 0, 0, 1)
+        transform = CATransform3DTranslate(transform, 0, -40, 0)
+        
+        replicatorLayer.instanceTransform = transform
+        
+        replicatorLayer.instanceBlueOffset = -0.1
+        replicatorLayer.instanceGreenOffset = -0.1
+        
+        replicatorLayer.instanceDelay = 1.5 / 10
+        
+        let subLayer = CALayer()
+        subLayer.backgroundColor = UIColor.yellow.cgColor
+        subLayer.frame = CGRect(x: 165, y: 30, width: 30, height: 30)
+        replicatorLayer.addSublayer(subLayer)
+        
+        let duration = 1.5
+
+        let shrink = CABasicAnimation(keyPath:"transform.scale")
+        shrink.fromValue = 1.0
+        shrink.toValue = 0.1
+        shrink.duration = duration
+        shrink.repeatCount = Float.infinity
+        subLayer.add(shrink, forKey: nil)
+        
+        subLayer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01)
+        
+    }
+    
+    func drawGradientLayer() {
+        let layer = CAGradientLayer()
+        layer.frame = containerView.bounds
+        containerView.layer.addSublayer(layer)
+        
+        // 默认均匀渲染
+        layer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+        // 通过location来调整属性空间
+        layer.locations = [0.0, 0.5]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x: 1, y: 1)
     }
     
     func drawCorner() {

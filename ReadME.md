@@ -30,6 +30,13 @@
 
 #### CATextLayer
 - uilabel的替换品
+
+#### CAGradientLayer
+- 渐变图层(colors与location配合使用)
+
+#### CAReplicatorLayer
+- 指示器、反射
+
     
 ### 动画
 - 动画执行的时间取决于当前事务的设置，动画类型取决于图层行为。
